@@ -23,12 +23,6 @@ void OBCameraNode::init() {
   startStreams();
   run_streaming_poller_ = true;
   poll_stream_thread_ = std::make_shared<std::thread>([this]() { pollFrame(); });
-  if (enable_point_cloud_) {
-    point_cloud_processor_ = std::make_unique<PointCloudXyzNode>(node_, parameters_);
-  }
-  if (enable_colored_point_cloud_) {
-    colored_point_cloud_processor_ = std::make_unique<PointCloudXyzrgbNode>(node_, parameters_);
-  }
   is_initialized_ = true;
 }
 

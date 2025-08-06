@@ -45,7 +45,6 @@
 #include "uvc_camera_driver.h"
 #include "dynamic_params.h"
 #include "types.h"
-#include "point_cloud_proc/point_cloud_proc.h"
 #include "magic_enum/magic_enum.hpp"
 
 
@@ -259,8 +258,6 @@ class OBCameraNode {
   ImageROI depth_roi_;
   int depth_scale_ = 1;
   std::string point_cloud_qos_;
-  std::unique_ptr<PointCloudXyzNode> point_cloud_processor_ = nullptr;
-  std::unique_ptr<PointCloudXyzrgbNode> colored_point_cloud_processor_ = nullptr;
   bool enable_point_cloud_ = true;
   bool enable_colored_point_cloud_ = false;
   std::recursive_mutex device_lock_;
